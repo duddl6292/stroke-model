@@ -4,3 +4,9 @@ __pycache__/
 .env
 .idea/
 .vscode/
+*.pth
+*.pt
+*.h5
+*.keras
+*.nii
+*.nii.gz

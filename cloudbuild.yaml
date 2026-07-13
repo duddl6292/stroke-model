@@ -1,0 +1,22 @@
+steps:
+  # 1단계: 도커 이미지 빌드
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/cdss-repo/api:$SHORT_SHA', '.']
+
+  # 2단계: Artifact Registry에 이미지 업로드
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/cdss-repo/api:$SHORT_SHA']
+
+  # 3단계: Cloud Run에 배포
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'cdss-api'
+      - '--image=asia-northeast3-docker.pkg.dev/$PROJECT_ID/cdss-repo/api:$SHORT_SHA'
+      - '--region=asia-northeast3'
+      - '--platform=managed'
+
+images:
+  - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/cdss-repo/api:$SHORT_SHA'
