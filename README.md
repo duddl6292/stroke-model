@@ -22,4 +22,4 @@ BrainOn 개발 초기에 만든 **FastAPI 추론 API 시제품**입니다. 이 �
 
 이 코드는 초기 API 흐름을 확인하기 위한 시제품입니다. 학습 코드, 데이터셋, 평가 결과, 모델 가중치는 포함하지 않습니다. `app/model.py`는 시작 시 GCS의 모델 파일을 불러오므로 해당 파일과 접근 권한이 없으면 실행할 수 없습니다. 입력 또한 최종 BrainOn의 CT·MRI·MRA NIfTI 추론 규격과 다릅니다.
 
-BrainOn 프로젝트에서 맡은 모델 연구와 서비스 연결 경험은 [GitHub 프로필](https://github.com/duddl6292)에 요약했습니다.
+BrainOn 프로젝트에서 맡은 모델 연구와 서비스 연결 경험은 [BrainOn AI 기술 요약](https://github.com/duddl6292/duddl6292/blob/main/docs/brainon-ai.md)에 정리했습니다.
